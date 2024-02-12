@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{item.title}}</mat-card-title>
+        @if (item.description) {
+            <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+        }
+    </mat-card-header>
+    <mat-card-actions align="end">
+        <button mat-icon-button color="warn" (click)="delete()" matTooltip="Usuń"><mat-icon>clear</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="edit()" matTooltip="Edytuj"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="show()" matTooltip="Podgląd i wypełnianie"><mat-icon>visibility</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="results()" matTooltip="Wyniki"><mat-icon>show_chart</mat-icon></button>
+    </mat-card-actions>
+</mat-card>

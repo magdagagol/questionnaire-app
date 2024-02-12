@@ -1,0 +1,31 @@
+<h1>Tworzenie nowej ankiety</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+        <mat-label>Tytuł ankiety</mat-label>
+        <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Opis ankiety</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <div class="questions" formArrayName="questions">
+        <h2>Pytania</h2>
+        <div>
+            @for (question of questions.controls; track question; let idx = $index) {
+                <app-question [idx]="idx" (remove)="removeQuestion($event)"></app-question>
+            }
+
+            <button mat-stroked-button color="accent" type="button" (click)="addQuestion()"><mat-icon>add</mat-icon>Pytanie</button>
+        </div>
+    </div>
+    <div>
+        <button mat-fab color="warn" class="custom-fab left" (click)="cancel()" matTooltip="Anuluj">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-fab color="primary" class="custom-fab right" type="submit" matTooltip="Zapisz">
+            <mat-icon>done</mat-icon>
+          </button>
+    </div>  
+</form>

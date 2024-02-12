@@ -1,0 +1,11 @@
+<header>
+    <h1>Lista ankiet</h1>
+</header>
+<div class="container">
+    @for (data of dataSource; track $index) {
+        <app-list-item [item]="data" (rowEvent)="rowEvent($event)"></app-list-item>
+    } @empty {
+        <p>no content</p>
+    }
+</div>
+
